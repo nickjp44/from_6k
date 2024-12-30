@@ -1,11 +1,11 @@
 // src/worker.js
 import { connect } from "cloudflare:sockets";
  
-let Pswd = "trojan";
+let Pswd = "calim";
 const proxyIPs = ["\u0074\u0073\u002e\u0068\u0070\u0063\u002e\u0074\u0077"]; 
 let cn_hostnames = [''];
 let CDNIP = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d\u002e\u0073\u0067'
-// http_ip
+
 let IP1 = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d'
 let IP2 = '\u0063\u0069\u0073\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d'
 let IP3 = '\u0061\u0066\u0072\u0069\u0063\u0061\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d'
@@ -14,7 +14,7 @@ let IP5 = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u0065\u0075\u0072\u0
 let IP6 = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d\u002e\u006d\u0074'
 let IP7 = '\u0071\u0061\u002e\u0076\u0069\u0073\u0061\u006d\u0069\u0064\u0064\u006c\u0065\u0065\u0061\u0073\u0074\u002e\u0063\u006f\u006d'
 
-// https_ip
+
 let IP8 = '\u0075\u0073\u0061\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d'
 let IP9 = '\u006d\u0079\u0061\u006e\u006d\u0061\u0072\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d'
 let IP10 = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d\u002e\u0074\u0077'
@@ -22,7 +22,7 @@ let IP11 = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u0065\u0075\u0072\u
 let IP12 = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d\u002e\u0062\u0072'
 let IP13 = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u0073\u006f\u0075\u0074\u0068\u0065\u0061\u0073\u0074\u0065\u0075\u0072\u006f\u0070\u0065\u002e\u0063\u006f\u006d'
 
-// http_port
+
 let PT1 = '80'
 let PT2 = '8080'
 let PT3 = '8880'
@@ -31,7 +31,7 @@ let PT5 = '2082'
 let PT6 = '2086'
 let PT7 = '2095'
 
-// https_port
+
 let PT8 = '443'
 let PT9 = '8443'
 let PT10 = '2053'
@@ -43,12 +43,6 @@ let sha224Password;
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 let proxyPort = proxyIP.includes(':') ? proxyIP.split(':')[1] : '443';
 const worker_default = {
-  /**
-   * @param {import("@cloudflare/workers-types").Request} request
-   * @param {proxyip: string, pswd: string, cdnip: string, ip1: string, ip2: string, ip3: string, ip4: string, ip5: string, ip6: string, ip7: string, ip8: string, ip9: string, ip10: string, ip11: string, ip12: string, ip13: string, pt1: string, pt2: string, pt3: string, pt4: string, pt5: string, pt6: string, pt7: string, pt8: string, pt9: string, pt10: string, pt11: string, pt12: string, pt13: string} env
-   * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
-   * @returns {Promise<Response>}
-   */
   async fetch(request, env, ctx) {
     try {
       const { proxyip } = env;
